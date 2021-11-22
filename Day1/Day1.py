@@ -15,7 +15,7 @@ print('Hello World!')
 # print the byte length of 'hello' (answer: 5)
 print(len('hello'))
 
-
+# Print 'e'
 print('hello'[1])
 
 # using a string literal to define type before manipulation
