@@ -45,17 +45,8 @@ board = "{}\n{}\n{}\n{}\n{}\n".format(
 # print functional .format() method
 print(board)
 
+# 
 # cleaner syntax and easier to read
-# line is 3 dashes with 2 dashes to offset the vertical
-# lines due to monospace characters
-line_row = '-----------'
-# spaced row will act as a container for each spaceX value ('x'/'o'/' ')
-spaced_row = ' {} | {} | {} '
-
-top_row = spaced_row.format(space1, space2, space3)
-mid_row = spaced_row.format(space4, space5, space6)
-bot_row = spaced_row.format(space7, space8, space9)
-
 # list the screen lines in a list data type
 screen_lines = [top_row, line_row, mid_row, line_row, bot_row]
 
