@@ -45,7 +45,6 @@ board = "{}\n{}\n{}\n{}\n{}\n".format(
 # print functional .format() method
 print(board)
 
-# 
 # cleaner syntax and easier to read
 # list the screen lines in a list data type
 screen_lines = [top_row, line_row, mid_row, line_row, bot_row]
