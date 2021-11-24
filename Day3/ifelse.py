@@ -226,9 +226,9 @@ if __name__ == '__main__':
     system('cls || clear')
     try:
         chals = [
-            # chal0,
-            # chal1,
-            # chal2,
+            chal0,
+            chal1,
+            chal2,
             chal3,
             chal4,
             # chal5,
