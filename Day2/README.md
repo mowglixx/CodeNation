@@ -23,6 +23,8 @@ my_everything = None # Store a None value
 ### Built in Functions to data-types
 **When you create a variable, you create a type of data that has built in functions depending on the data**
 
+See [Python Built in Functions](https://www.w3schools.com/python/python_ref_functions.asp), [Python String Methods](https://www.w3schools.com/python/python_ref_string.asp) and [How to Add Two Numbers in Python](https://www.w3schools.com/python/python_howto_add_two_numbers.asp)(This includes the use of variables)
+
 A 'String' data type has certain methods that you can can "**call**" with 'dot-notation', better represented as an example below
 ```py
 # declare a string variable to have access to the '.format()' function/method, because it is a string, like all strings, it has access to 'format()'
@@ -32,3 +34,4 @@ my_string = "This is a string {}"
 my_string.format(", Hi!")
 #        ^Heres the dot
 ```
+
