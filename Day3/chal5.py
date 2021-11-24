@@ -1,3 +1,6 @@
+#
+# Challenge 5
+#
 # Create a variable called `time`, a
 # variable called `place_of_work` and
 # a variable called `town_of_home`.
@@ -6,9 +9,7 @@
 #
 # E.g. if the time is 7 I’m at home,
 # at 8 I’m commuting, at 9 I’m at work.
-#
-# Don't know why this is after fizzbuzz tbh
-#
+
 
 def time_travel():
     time = int(input('Input an Hour of the day [17 for 5PM]'))
