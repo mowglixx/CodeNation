@@ -19,5 +19,6 @@ def comparing_letters_from_a_word():
     else:
         result = False
 
-    print(f'Is {first_letter} different to {last_letter} in {word.upper()}?')
+    print(
+        f'Is {first_letter.upper()} different to {last_letter.upper()} in {word.upper()}?')
     print(f'Result: {result}')

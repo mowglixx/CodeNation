@@ -9,7 +9,7 @@
 # Otherwise print num.
 
 def fizzbuzz():
-    # cast num into int
+    # cast num into int becuase input returns a string
     num = int(input('enter a number: '))
 
     # create a function to check the divisable number and return a boolean for use in if statments
@@ -22,11 +22,13 @@ def fizzbuzz():
     if num > 0:
         if is_div(3) and is_div(7):
             print('fizzbuzz')
-        elif is_div(3) and is_div(7) != True:
+            print(f'{num} is divisible by 3 AND 7')
+        elif is_div(3):
             print('fizz')
-        elif is_div(7) and is_div(3) != True:
+            print(f'{num} is divisible by 3')
+        elif is_div(7):
             print('buzz')
+            print(f'{num} is divisible by 7')
         else:
             print(num)
-    print(f'{num} Divisible by 3: {is_div(3)}')
-    print(f'{num} Divisible by 7: {is_div(7)}')
+            print(f'{num} is not divisible by 3 or 7')
