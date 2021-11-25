@@ -8,11 +8,12 @@
 
 def is_even():
     # cast int data type as input returns str
-    num1 = int(input('num1:'))
-    num2 = int(input('num2:'))
+    num1 = int(input('num1: '))
+    num2 = int(input('num2: '))
 
     # get the sum
     sum = num1 + num2
+    print(f'{num1}+{num2}={sum}')
 
     # if sum is divisable by 2 it's even
     # also 0 is even...
