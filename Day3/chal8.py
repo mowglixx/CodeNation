@@ -17,7 +17,7 @@ def last_vowel():
             last_vowel_found = letter
             last_vowel_found_index = letter_index
 
-    print(f'last_vowel: {last_vowel_found}')
+    print(f'last_vowel: {last_vowel_found.upper()}')
     print(f'last_vowel_index: {last_vowel_found_index}')
     print(
-        f'`big_string[{last_vowel_found_index}]` returns: {big_string[last_vowel_found_index]}')
+        f'`big_string[{last_vowel_found_index}]` returns: {big_string[last_vowel_found_index].upper()}')
