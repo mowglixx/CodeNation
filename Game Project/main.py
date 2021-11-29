@@ -1,6 +1,13 @@
-import time
+from os import system as s
+from time import sleep
+from sys import stdout as term
 
-text_speed = 40
+def clear_screen():
+    s('cls||clear')
+
+clear_screen()
+
+text_speed = 0.1
 screen_width = 40
 
 
@@ -27,7 +34,7 @@ ascii_art = """           .          .           .     .                .       
  /WWWWWIIIIiii;;::.... :   ;|WWWWWWII;;::.:      :;IMWIIIII;:   \___     *
 /WWWWWWWWWIIIIIWIIii;;::;..;\WWWWWWIII;;;:::...    ;IMIII;;     ::  \     .
 WWWWWWWWWIIIIIIIIIii;;::.;..;\WWWWWWWWIIIII;;..  :;IMIII;:::     :    \   
-WWWWWWWWWWWWWIIIIIIii;;::..;..;\WWWWWWWWIIII;::; :::::::::.....::       \
+WWWWWWWWWWWWWIIIIIIii;;::..;..;\WWWWWWWWIIII;::; :::::::::.....::      \\
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%XXXXXXX
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%XXXXXXXXXX
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%XXXXXXXXXXXXX
@@ -46,11 +53,14 @@ WWWWWWWWWWWWWIIIIIIii;;::..;..;\WWWWWWWWIIII;::; :::::::::.....::       \
 
 
 def typewritter(line):
-    chars = line.split()
-    for char in chars:
-        # time.sleep(1)
-        print(char ,end="")
-    print('\n')
+    for char in line:
+        sleep(0.03)
+        term.write(char)
+        term.flush()
+    term.write("\n")
+    term.flush()
+    
+    
 
 
 
@@ -64,8 +74,6 @@ def dialogue_box(actor, dialogue):
     num_stars_needed = screen_width - 10 - len(actor)
     solid_line = f"***[ {actor} ]***"
     solid_line += "*"*num_stars_needed
-
-    
     print(ascii_art)
     print('')
     print(solid_line)
@@ -73,7 +81,9 @@ def dialogue_box(actor, dialogue):
     typewritter(dialogue[1])
     typewritter(dialogue[2])
     typewritter(dialogue[3])
-
+    input("\n ⏩ Press Enter to continue...")
+    
+    clear_screen()
 
 
 dialogue_box("Johny wham bam", dialogue)
