@@ -1,22 +1,23 @@
-# redraw_screen Function
+# typewritter Function
 
-## Globals
-- bg_ascii_art
-- player
-  - ascii_art
-  - position
-    - x
-    - y
+## Globals/Variables
+- text_speed
+
+## Parameters
 - dialogue
-  - [
-      'line_1',
-      'line_2',
-      'line_3',
-      'line_4']
+  - line 1
+  - line 2
+  - line 3
+  - line 4
 
-## functionality/logic
-```when player_pos / dialogue changes:
-    clear_screen()
-    redraw(bg, player_char)
-        if dialogue lines == 4
-            print(dialogue)```
+```python
+def typewritter(dialogue):
+  print dialogue line 1
+  sleep(text_speed)
+  print dialogue line 2
+  sleep(text_speed)
+  print dialogue line 3
+  sleep(text_speed)
+  print dialogue line 4
+  
+```

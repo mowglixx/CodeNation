@@ -22,3 +22,5 @@ when player_pos / dialogue changes:
         if dialogue lines == 4
             typewritter(next_dialogue_lines, 0.3s/char)
 ```
+
+
