@@ -2,65 +2,88 @@ from os import system as s
 from time import sleep
 from sys import stdout as term
 
-dialogue = [
-    "Good morning PLAYER. Did you slept well?",
-    "There’s a note over there on the side.",
-    "Would you like to read it? Now I’m just",
-    "Padding to make an extra line."
-    ]
+# default globals
+text_speed = 0.03
+screen_width = 60
 
-ascii_art = """           .          .           .     .                .       .
-  .      .      *           .       .          .                       .
-                 .       .   . *            "Go where you will...
-  .       ____     .      . .            .    I'll always love you, Tammy."
-         >>         .        .               .
- .   .  /WWWI; \  .       .    .  ____               .         .     .         
-  *    /WWWWII; \=====;    .     /WI; \   *    .        /\_             .
-  .   /WWWWWII;..      \_  . ___/WI;:. \     .        _/M; \    .   .         .
-     /WWWWWIIIIi;..      \__/WWWIIII:.. \____ .   .  /MMI:  \   * .
- . _/WWWWWIIIi;;;:...:   ;\WWWWWWIIIII;.     \     /MMWII;   \    .  .     .
-  /WWWWWIWIiii;;;.:.. :   ;\WWWWWIII;;;::     \___/MMWIIII;   \              .
- /WWWWWIIIIiii;;::.... :   ;|WWWWWWII;;::.:      :;IMWIIIII;:   \___     *
-/WWWWWWWWWIIIIIWIIii;;::;..;\WWWWWWIII;;;:::...    ;IMIII;;     ::  \     .
-WWWWWWWWWIIIIIIIIIii;;::.;..;\WWWWWWWWIIIII;;..  :;IMIII;:::     :    \   
-WWWWWWWWWWWWWIIIIIIii;;::..;..;\WWWWWWWWIIII;::; :::::::::.....::      \\
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%XXXXXXX
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%XXXXXXXXXX
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%XXXXXXXXXXXXX
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%XXXXXXXXXXXXXXXXX
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%XXXXXXXXXXXXXXXXXXXX
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%XXXXXXXXXXXXXXXXXXXXXXXXXX"""
+
+def format_lines(dialogue_lines: str = ""):
+    global screen_width
+    # split the string into words
+    words = dialogue_lines.split()
+    current_line = ""
+    lines = []
+    # do this for each word in words
+    for next_word in words:
+        # if the length of the line + the length of the
+        # next word in the dialogue is less than 40 add
+        # the word to the string with a space else
+        # newline THEN the next word
+        if len(current_line)+len(next_word+" ") < screen_width:
+            current_line += next_word+" "
+        else:
+            lines.append(current_line)
+            current_line = ""
+            current_line += next_word+" "
+    # when the lines have been
+    return lines
+
 
 def clear_screen():
     s('cls||clear')
 
-clear_screen()
 
-text_speed = 0.1
-screen_width = 40
-
-def typewritter(line):
+def typewriter(line):
+    global text_speed
     for char in line:
-        sleep(0.03)
+        if char != " ":
+            sleep(text_speed)
         term.write(char)
         term.flush()
     term.write("\n")
     term.flush()
 
-def dialogue_box(artwork, actor, dialogue):
-    actor = str(actor)
-    global screen_width
-    num_stars_needed = screen_width - 10 - len(actor)
-    solid_line = f"***[ {actor} ]***"
-    solid_line += "*"*num_stars_needed
-    print(artwork)
-    print('')
-    print(solid_line)
-    typewritter(dialogue[0])
-    typewritter(dialogue[1])
-    typewritter(dialogue[2])
-    typewritter(dialogue[3])
-    input("\n ⏩ Press Enter to continue...")    
-    clear_screen()
 
-dialogue_box(ascii_art, "Character Name here", dialogue)
+def dialogue_box(artwork: str, actor: str, dialogue=[]):
+
+    global screen_width
+
+    number_of_dialogue_lines = len(dialogue)
+    dialogue_index = 0
+
+    # check for a multiple of 4 lines in dialogue,
+    # if there is remaining lines that will cause
+    # an index error add an empty string to the array
+    # for the ammout of lines that are "spare"
+    if number_of_dialogue_lines % 4 != 0:
+        spare_lines = 4-(len(dialogue) % 4)
+        while spare_lines > 0:
+            dialogue.append('')
+            spare_lines -= 1
+
+    # check for actor
+    if actor:
+        solid_line = f"***[ {actor} ]***"
+        num_stars_needed = screen_width - len(solid_line)
+        solid_line += "*"*num_stars_needed
+    else:
+        solid_line = "*"*screen_width
+
+    # while there is lines print 4 at a time
+    while len(dialogue) > 0:
+        print(solid_line)
+        typewriter(dialogue[dialogue_index])
+        typewriter(dialogue[dialogue_index+1])
+        typewriter(dialogue[dialogue_index+2])
+        typewriter(dialogue[dialogue_index+3])
+
+        # increase the index by 4 to bring the next "page" of dialogue
+        if dialogue_index < number_of_dialogue_lines:
+            dialogue_index += 4
+
+        input("\nPress Enter to continue ⏩\n")
+        if dialogue_index > number_of_dialogue_lines:
+            clear_screen()
+            break
+        else:
+            clear_screen()
