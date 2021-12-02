@@ -4,6 +4,7 @@ from sys import stdout as term
 from typing import Literal
 from .assets.dialogue import affirmative_words, negative_words
 from .assets.artwork import artwork as a
+from math import floor
 # default globals
 text_speed = 0.03
 screen_width = 60
@@ -62,17 +63,16 @@ def dialogue_box(artwork="blank", actor="", dialogue="""... You should have wrot
     dialogue = format_lines(dialogue)
 
     number_of_dialogue_lines = len(dialogue)
-    dialogue_index = 0
 
     # check for a multiple of 4 lines in dialogue,
     # if there is remaining lines that will cause
     # an index error add an empty string to the array
-    # for the ammout of lines that are "spare"
-    if number_of_dialogue_lines % 4 != 0:
-        spare_lines = 4-(len(dialogue) % 4)
-        while spare_lines > 0:
-            dialogue.append('')
-            spare_lines -= 1
+    # for the ammout of lines that are "spare" << this is now lies
+    # if floor(number_of_dialogue_lines % 4) != 0:
+    #     spare_lines = 4-(floor(len(dialogue) % 4))
+    #     while spare_lines >= 1:
+    #         dialogue.append('')
+    #         spare_lines -= 1
 
     # check for actor
     if actor:
@@ -83,21 +83,10 @@ def dialogue_box(artwork="blank", actor="", dialogue="""... You should have wrot
         solid_line = "*"*screen_width
 
     # while there is lines print 4 at a time
-    while len(dialogue) > 0 and dialogue_index < len(dialogue):
-        print(a[artwork])
-        print(solid_line)
-        typewriter(dialogue[dialogue_index])
-        typewriter(dialogue[dialogue_index+1])
-        typewriter(dialogue[dialogue_index+2])
-        typewriter(dialogue[dialogue_index+3])
+    print(a[artwork])
+    print(solid_line)
+    for lines in dialogue:
+        typewriter(lines)
 
-        # increase the index by 4 to bring the next "page" of dialogue
-        if dialogue_index < number_of_dialogue_lines:
-            dialogue_index += 4
-
-        input("\nPress Enter to continue ⏩\n")
-        if dialogue_index > number_of_dialogue_lines:
-            clear_screen()
-            break
-        else:
-            clear_screen()
+    input("\nPress Enter to continue ⏩\n")
+    clear_screen()

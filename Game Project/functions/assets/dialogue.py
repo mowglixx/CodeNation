@@ -61,7 +61,7 @@ negative_words = [
 
 lines = [
 
-    f"""Hello {player_name}, you little bum head. Thought you could get away with stealing from me? You thought wrong. Until you bring me what is rightfully mine, I'll keep hold of something very dear to you. Or should that be... Someone? Mwahahaha! You have until midnight to do the right thing. And no, I don't mean go on a quest in a bid to be the hero. What do you think this is, a game? Bring me what you stole from me, or else, the Princess will die. Try and be smart with me, you will both die. Is that understood? Lots of love, {villan_name}. P.S. Bring milk.""",
+    f"""Hello {player_name}, you little bum head. Thought you could get away with stealing from me? You thought wrong. Until you bring me what is rightfully mine, I'll keep hold of something very dear to you. Or should that be... Someone? Mwahahaha! You have until midnight to do the right thing. And no, I don't mean go on a quest in a bid to be the hero. What do you think this is, a game? Bring me what you stole from me, or else, the Princess will die. Try and be smart with me, you will both die. Is that understood? Lots of loveeeeeeeeeee {villan_name} P.S. Bring milk.""",
 
     f"Oh no! {villan_name} has kidnapped her highness, Princess Footstool! {player_name}, you'll have to go and rescue her! Quick! You leap out of bed, still in your pyjamas, and run out the door. You look around and see an old lady. Do you ask them for help?",
 
