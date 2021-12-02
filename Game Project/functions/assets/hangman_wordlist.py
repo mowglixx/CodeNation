@@ -1,0 +1,1 @@
+words = ["royal guard", "bear", "chicken", "lion", "castle", "princess", "code nation"]
