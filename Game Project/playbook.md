@@ -1,5 +1,6 @@
 # playbook
 
+```
 ask for player name
 dialogue.lines[0] = villan [blank art] 
 dialogue.lines[1] = narrator [blank art]
@@ -48,3 +49,4 @@ dialogue.lines[32] = Narator // You grab the Princess [princess art]
 dialogue.lines[33] = Princess Stasuma // I'm Princess Stasuma [princess art]
 dialogue.lines[34] = player // You must be nuts [princess art]
 dialogue_box()
+```
