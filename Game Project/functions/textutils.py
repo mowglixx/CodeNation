@@ -1,8 +1,9 @@
 from os import system as s
 from time import sleep
 from sys import stdout as term
-from assets.dialogue import affirmative_words, negative_words
-
+from typing import Literal
+from .assets.dialogue import affirmative_words, negative_words
+from .assets.artwork import artwork as a
 # default globals
 text_speed = 0.03
 screen_width = 60
@@ -55,9 +56,10 @@ def typewriter(line):
     term.flush()
 
 
-def dialogue_box(artwork: str, actor: str, dialogue=[]):
+def dialogue_box(artwork="blank", actor="", dialogue="""... You should have wrote something here, lazy developer..."""):
 
     global screen_width
+    dialogue = format_lines(dialogue)
 
     number_of_dialogue_lines = len(dialogue)
     dialogue_index = 0
@@ -82,7 +84,7 @@ def dialogue_box(artwork: str, actor: str, dialogue=[]):
 
     # while there is lines print 4 at a time
     while len(dialogue) > 0 and dialogue_index < len(dialogue):
-        print(artwork)
+        print(a[artwork])
         print(solid_line)
         typewriter(dialogue[dialogue_index])
         typewriter(dialogue[dialogue_index+1])

@@ -1,6 +1,6 @@
 # ask for player name
 player_name = input("What is your name Hero? ")
-villan_name = "Ashley"
+villan_name = "Septic Meg"
 
 affirmative_words = [
     "yes",
@@ -61,7 +61,7 @@ negative_words = [
 
 lines = [
 
-    f"Hello {player_name}, you little bum head. Thought you could get away with stealing from me? You thought wrong. Until you bring me what is rightfully mine, I'll keep hold of something very dear to you. Or should that be... Someone? Mwahahaha! You have until midnight to do the right thing. And no, I don't mean go on a quest in a bid to be the hero. What do you think this is, a game? Bring me what you stole from me, or else, the Princess will die. Try and be smart with me, you will both die. Is that understood? Lots of love, {villan_name}. P.S. Bring milk.",
+    f"""Hello {player_name}, you little bum head. Thought you could get away with stealing from me? You thought wrong. Until you bring me what is rightfully mine, I'll keep hold of something very dear to you. Or should that be... Someone? Mwahahaha! You have until midnight to do the right thing. And no, I don't mean go on a quest in a bid to be the hero. What do you think this is, a game? Bring me what you stole from me, or else, the Princess will die. Try and be smart with me, you will both die. Is that understood? Lots of love, {villan_name}. P.S. Bring milk.""",
 
     f"Oh no! {villan_name} has kidnapped her highness, Princess Footstool! {player_name}, you'll have to go and rescue her! Quick! You leap out of bed, still in your pyjamas, and run out the door. You look around and see an old lady. Do you ask them for help?",
 
@@ -124,25 +124,31 @@ lines = [
 
     "Where... Where are you? Everything's all blurry...",
 
-    f"{player_name}! Help me Princess Footstool! It's her! But where is she? Curse this blurry vision! Wait... Why can't you move your arms? You're tied up! Oh no! And so is your beloved Princess! And is that... Oh no... It's {villan_name}!",
+    f"{player_name} Help me!",
 
-    f"Look at you, you pathetic worm. I told you you'd have no chance against me. And now, I'm going to have to kill you both. Do you have any last requests?",
+    f"Princess Footstool! It's her! But where is she? Curse this blurry vision! Wait... Why can't you move your arms? You're tied up! Oh no! And so is your beloved Princess! And is that... Oh no... It's {villan_name}!",
 
-    # (YES/NO)
-
-    f"And what might that be? A game of Hangman? Hahahahaha... Oh, it is? Oh, well. I guess that can be arranged. Very well, {player_name}. Let's make it interesting. Let's call it, heh heh... Hang Princess!",
-
-    # (HANGMAN CHALLENGE)
-
-    "Okay, okay. Anyone who guesses a stupid word like that isn't worth doing time for double murder. I'll let the Princess go... As long as you give back what you took. Where is it? Hand it over? ...are you stupid!? Have you forgotten? You stole my precious antique sword! Do you have it, yes or no?",
+    "Look at you, you pathetic worm. I told you you'd have no chance against me. And now, I'm going to have to kill you both. Do you have any last requests?",
 
     # (YES/NO)
 
-    "Hand it over! ...yes, that's the one. Looks practically unused. Did you even bother killing someone with it? Or are you more of a rock, paper, scissors person? Ah, never mind. Take your princess and Get out of my sight. Go on. Shoo.",
+    "And what might that be? A game of Hangman? Hahahahaha... Oh, it is? Oh, well... My developers haven't got time to do anything like that. Besides, Hangman is old and stale. I'll set you a fresh challenge you've never seen before. You'll have no chance! I challenge you to... Rock, Paper, Scissors!",
+
+    # ROCK PAPER SCISSORS CHALLENGE 2
+
+    "Curses! It's almost as if you've played this before! Alright, fine. I'll let the Princess go. As long as you give back what you took... Why are you giving me a blank look? Have you forgotten? You stole my precious antique sword! Do you have it, yes or no?"
+
+    # (YES/NO)
+
+    "Hand it over! ...yes, that's the one. Looks practically unused. Did you even bother killing someone with it? ",
+    
+    "Never mind.",
+    
+    "Take your princess and Get out of my sight. Go on. Shoo.",
 
     "You grab the Princess' hand and you both sprint to freedom! You're free! You saved the day! Now, here comes your hero's reward! A big kiss from Princess... wait... You're not Princess Footstool. Who are you?",
 
-    f"I'm Princess Clementine. I'm sorry {player_name}, but your princess Is in another castle.",
+    f"I'm Princess Satsuma. I'm sorry {player_name}, but your princess Is in another castle.",
 
     "You must be nuts if you want to do all that again! Let's go home.",
 
