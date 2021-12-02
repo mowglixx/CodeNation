@@ -1,9 +1,6 @@
 from random import randrange as r
-
 from textutils import typewriter, clear_screen
-
 from assets.hangman import state
-
 from assets.hangman_wordlist import words as wordlist
 
 def hangman_puzzle():
@@ -30,6 +27,7 @@ def hangman_puzzle():
         typewriter("Guess the word")
         guess  = input("\n")
         if guess.lower() in word or guess.lower() == word:
+            
             if guess.lower() == word:
                 word = None
                 tries = 7

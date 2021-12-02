@@ -1,10 +1,21 @@
 from os import system as s
 from time import sleep
 from sys import stdout as term
+from assets.dialogue import affirmative_words, negative_words
 
 # default globals
 text_speed = 0.03
 screen_width = 60
+
+def choice(question="What is your answer? "):
+    while True:
+        choice = input(question+'[Y/N] ')
+        if choice.lower() in affirmative_words:
+            return True
+        elif choice.lower() in negative_words:
+            return False
+        else:
+            print("Answer not recognised, try again")
 
 
 def format_lines(dialogue_lines: str = ""):
@@ -70,7 +81,8 @@ def dialogue_box(artwork: str, actor: str, dialogue=[]):
         solid_line = "*"*screen_width
 
     # while there is lines print 4 at a time
-    while len(dialogue) > 0:
+    while len(dialogue) > 0 and dialogue_index < len(dialogue):
+        print(artwork)
         print(solid_line)
         typewriter(dialogue[dialogue_index])
         typewriter(dialogue[dialogue_index+1])
