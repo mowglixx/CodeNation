@@ -31,12 +31,12 @@ WWWWWWWWWWWWWIIIIIIii;;::..;..;\WWWWWWWWIIII;::; :::::::::.....::      \\
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%XXXXXXXXXXXXXXXXXXXX
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%XXXXXXXXXXXXXXXXXXXXXXXXXX"""
 
-formatted_dialogue = t.format_lines("Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sequi nulla repellendus iusto voluptas quasi esse id magnam dolore sunt ullam deserunt dicta alias, aliquid, ea quis inventore nisi nobis soluta? Iusto dolorem, quod mollitia vero suscipit maxime quidem explicabo similique quo dolorum eligendi autem ratione, quaerat in! Velit aspernatur voluptatibus perspiciatis rerum vel fugit asperiores a. Enim veniam a ullam? Voluptatibus laboriosam ipsa delectus!")
+formatted_dialogue = "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sequi nulla repellendus iusto voluptas quasi esse id magnam dolore sunt ullam deserunt dicta alias, aliquid, ea quis inventore nisi nobis soluta? Iusto dolorem, quod mollitia vero suscipit maxime quidem explicabo similique quo dolorum eligendi autem ratione, quaerat in! Velit aspernatur voluptatibus perspiciatis rerum vel fugit asperiores a. Enim veniam a ullam? Voluptatibus laboriosam ipsa delectus!"
 print("formatted_dialogue: \n==================")
 print(formatted_dialogue)
 
 for line in formatted_dialogue:
-    t.typewritter(line)
+    t.typewriter(line)
 
 
 t.dialogue_box("castle", player_name, formatted_dialogue)
