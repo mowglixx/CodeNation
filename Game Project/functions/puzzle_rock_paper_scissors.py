@@ -1,6 +1,9 @@
 from time import sleep
-from .textutils import typewriter
 import random as r
+
+from .textutils import typewriter
+from .assets.dialogue import player_name
+
 
 RPS = ["ROCK", "PAPER", "SCISSORS"]
 
@@ -10,7 +13,6 @@ def rock_paper_scissors_puzzle():
     player = player_move()
     winner, tie = calc_winner(comp, player)
     disp_winner(winner, tie)
-    input("\nPress Enter ⏩\n")
     return winner
 
 
@@ -27,12 +29,12 @@ def player_move():
 
 
 def calc_winner(comp, player):
-    typewriter("Your opponent chooses {0}.".format(comp))
+    typewriter("\n\nYour opponent chooses {0}.".format(comp))
     winner = None
     tie = False
 
     if player == comp:
-        typewriter("No winner.... Restarting....\n")
+        typewriter("\n\nNo winner.... Restarting....\n")
         rock_paper_scissors_puzzle()
         tie = True
     elif (((comp == "ROCK") and (player == "PAPER")) or
@@ -49,8 +51,8 @@ def disp_winner(winner, tie):
     if tie == True:
         typewriter("")
     elif winner == True:
-        typewriter("You beat Your opponent!")
+        typewriter("\n\nYou beat your opponent!")
     elif winner == False:
-        typewriter("Your opponent beat you!")
+        typewriter("\n\nYour opponent beat you!")
 
 

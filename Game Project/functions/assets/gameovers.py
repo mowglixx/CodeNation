@@ -12,7 +12,7 @@ gameovers = [
     "A passenger jet fell from the sky and landed directly on you. You broke the fall, as well as all of your bones, and the passengers and crew escaped uninjured.",
 
     # Selecting NO to the lion's offer of help
-    "The lion kept you engrossed for several days by a very long story about his holiday to Nepal, and you dide of malnutrition as you forgot to eat or drink.",
+    "The lion kept you engrossed for several days by a very long story about his holiday to Nepal, and you died of malnutrition as you forgot to eat or drink.",
 
     # Failing Riddle challenge
     "The lion killed you by offering you peanuts. You forgot you're allergic.",

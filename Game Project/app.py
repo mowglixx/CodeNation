@@ -31,12 +31,13 @@ if __name__ == '__main__':
     try:
         show_title()
         d('blank', meg, l[0])
-        d('home', '', l[1], False)
-        
-        # ask the old lady for help? else gameover
-        if t.choice('Do you ask them for help?') == False: t.game_over(gameover_reasons[0])
 
+        # ask the old lady for help? else gameover
+        d('home', '', l[1], False)
+        if t.choice('Do you ask them for help?') == False: 
+            t.game_over(gameover_reasons[0])
         cls()
+
         d('old_lady', 'Old Lady', l[2], False)
         print('\n')
 
@@ -57,15 +58,21 @@ if __name__ == '__main__':
             cls()
             d('dazed','💩','That\'s probably for the best... Moving on...') # dog poo [dazed art]    
         
+        # Dialogue Continues
         d('forest','???',l[6]) # ??? // WAIT who goes there? [forest art] 
         d('forest','',l[7]) # Narrator // You stop dead in your tracks [forest art]
         d('black_knight_pre','Black Knight',l[8]) # Black Knight // What are you doing here? [black_kight_pre art]
         d('black_knight_pre',p,l[9]) # player // ...
+        
+        # Rock Paper Scissors 1 - Big town Gains
         d('black_knight_pre','Black Knight',l[10], False) # Black Knight // I see
         if rps() == False: 
-            t.game_over(gameover_reasons[3])
+            input("\nPress Enter ⏩\n")
+            t.game_over(gameover_reasons[2])
+        input("\nPress Enter ⏩\n")
         cls()
         
+        # Dialogue contuinues
         d('black_knight_pre','Black Knight',l[11])
         d('black_knight_pre','Black Knight',l[12])
         d('black_knight_pre','Black Knight',l[13])
@@ -79,6 +86,7 @@ if __name__ == '__main__':
             t.game_over(gameover_reasons[3])
         cls()
 
+
         d('lion',lion_name,l[18], False)
         # help from the lion?
         if t.choice('Would you like my help?') == False:
@@ -91,20 +99,23 @@ if __name__ == '__main__':
             t.game_over(gameover_reasons[5])
         cls()
         
+        # Lion post riddle dialogue
         d('lion',lion_name,l[20])
         
-        d('phone','',l[21], False)
         # Maths Challenge
+        d('phone','',l[21], False)
         if maths_puzzle() == False:
             t.game_over(gameover_reasons[6])
         cls()
-
+        
+        # Dialogue continues
         d('castle', 'Lion', l[22])
         d('dazed', '???', l[23])
         d('princess', 'Princess Footstool', l[24])
         d('dazed', '', l[25])
-        d('dazed', meg, l[26], False)
+        
         # Maths Challenge
+        d('dazed', meg, l[26], False)
         if t.choice('Do you have any last requests?') == False:
             t.game_over(gameover_reasons[7])
         cls()
@@ -112,8 +123,10 @@ if __name__ == '__main__':
         # RPS 2 - Electric Boogaloo
         # - Cancelled Hangman Challenge
         d('blank', meg, l[27], False)
-        if rps() == False:
+        if rps() == False: 
+            input("\nPress Enter ⏩\n")
             t.game_over(gameover_reasons[8])
+        input("\nPress Enter ⏩\n")
         cls()
         
         d('sword', meg,l[28], False)

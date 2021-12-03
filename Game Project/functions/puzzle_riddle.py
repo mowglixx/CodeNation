@@ -5,7 +5,7 @@ from random import randint
 
 def riddle_puzzle():
     typewriter("Welcome to your riddle!")
-    typewriter("\n\nWhat do Tea and an island have in common?")
+    typewriter("\n\nWhat do \"T\" and an island have in common?")
     
     tries = 0
     
@@ -20,6 +20,6 @@ def riddle_puzzle():
             elif tries < 2:
                 typewriter("\nNearly, try again...")
         elif guess.lower() == "water" :
-            typewriter("You guessed it! The answer is - They are both in the middle of water")
+            typewriter("You guessed it! The answer is - They are both in the middle of water!")
             sleep(2)
             return True

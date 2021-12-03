@@ -1,6 +1,6 @@
 # ask for player name
 
-player_name = input("\n\nBefore we begin... What is your name Hero? ")
+player_name = input("\n\nBefore we begin... What is your name, Hero? ")
 villan_name = "Septic Meg"
 
 affirmative_words = [
@@ -98,7 +98,7 @@ lines = [
     
     "How?",
     
-    "My whole purpose in life. Crumbling in front of me. I am Not strong, I am weak. I am pathetic. I am no knight. I am worthless...",
+    "My whole purpose in life. Crumbling in front of me. I am not strong, I am weak. I am pathetic. \nI am no knight. I am worthless...",
     f"Take my sword {player_name}, and do what you need to do... I'm going to become an estate agent.",
 
     f"Congratulations {player_name}! You won a sword! You can use this to fight enemies... or steal from off licences!",
@@ -115,7 +115,7 @@ lines = [
 
     # (RIDDLE CHALLENGE)
 
-    f"You're not as stupid as you look. Colour me impressed, {player_name}. I guess you could say, I have pride in you... heh heh heh. Head into that phone box over there, and you will be transported to {villan_name}'S castle. You're on your own from there, my friend. Now, go away. Farewell, {player_name}.",
+    f"You're not as stupid as you look. Colour me impressed, {player_name}. I guess you could say, I have pride in you... heh heh heh. Head into that phone box over there, and you will be transported to {villan_name}'s castle. You're on your own from there, my friend. \nNow, go away. \nFarewell, {player_name}.",
 
     f"You go to the phonebox and step inside. The phonebox starts to shake! The light from outside is blinding! You close your eyes until the shaking and rattling finally stops. Everything settles down. Your eyes slowly open, and there it is – {villan_name}'s castle. Princess Footstool must be inside! Let's go! ...well? Open the door then! ...oh no. It's locked. Balderdash! Maybe a code unlocks the door. Wait... not all those business cards are phone numbers... They're sums!",
 
