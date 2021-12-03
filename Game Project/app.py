@@ -1,65 +1,129 @@
 from time import sleep
-from functions.puzzle_missing_word import missing_word_puzzle
+
+
+# local librarys
 import functions.textutils as t
+from functions.puzzle_missing_word import missing_word_puzzle
+from functions.puzzle_maths import maths_puzzle
+from functions.puzzle_riddle import riddle_puzzle
+from functions.puzzle_rock_paper_scissors import rock_paper_scissors_puzzle as rps
+from functions.puzzle_missing_word import missing_word_puzzle
 from functions.assets.dialogue import lines as l, villan_name as meg, player_name as p
 from functions.assets.artwork import artwork as a
+from functions.assets.gameovers import gameovers as gameover_reasons
 
-title = a['title']
+# make it faster to write main with a few aliases
 d = t.dialogue_box
+cls = t.clear_screen
+lion_name = 'Prof. Lion \'Mittens\' McNaulty IV'
 
-# switches
-PLAYER_HAS_NAME, TEXT_SPEED_SET, NEW_GAME_CONFIRM = 0, 0, 0
 
-text_speed = 0.1
-screen_width = 60
-if __name__ == '__main__':
-    print(title)
+
+def show_title():
+    # clear the screen and show the title for 3 seconds 
+    # then clear the screen and start the game 
+    cls()
+    print(a['title'])
     sleep(3)
-    t.clear_screen()
-    d('blank', meg, l[0])
-    d('blank', 'narrator', l[1])
-    t.choice('Do you ask them for help?')
-    d("old_lady" 'Old Lady', l[2])
-    missing_word_puzzle()
-    d("old_lady" 'Old Lady', l[3])
-    d[4] = player // going toward village [village art]
-    t.choice('Pick it up and take a look?')
-    d[5] = player // dog poo 💩 [dazed art]
-    d[6] = ??? // WAIT who goes there? [forest art] 
-    d[7] = Narrator // You stop dead in your tracks [forest art]
-    d[8] = Black Knight // What are you doing here? [black_kight_pre art]
-    d[9] = player // ... 
-    d[10] = Black Knight // I see [black_kight_pre art]
-    rock paper scissors puzzle
-    d[11] = Black Knight // What? [black_kight_post art]
-    d[12] = Black Knight // No! [black_kight_pre art]
-    d[13] = Black Knight // How??? [black_kight_pre art]
-    d[14] = Black Knight // whole life purpose... [black_kight_pre art]
-    d[15] = Black Knight // take sword [black_kight_post art]
-    d[16] = Black Knight // take sword acknol [sword art]
-    d[17] = narrator // go toward village [village art]
-    choice 3 [sit next to lion]
-    d[18] = Lion // Take a seat, mon amis [lion art]
-    choice 4 [Would you like my help?]
-    d[19] = Lion // Marvellous. Of course [lion art]
-    RIDDLE CHALLENGE
-    d[20] = Lion // You're not as stupid as you look [phone art]
-    d[21] = Narrator // You go to the phonebox and step inside [spiral art]
-    MATHS CHALLENGE
-    d[22] = Lion // Carol Vorderman [castle art]
-    d[23] = ??? // Everthing Blurry [dazed art]
-    d[24] = Footstool // Help me [princess art]
-    d[25] = Narrator // Thats her [dazed art]
-    d[26] = Meg // pathetic worm [dazed art]
-    choice 5 [Do you have any last requests?]
-    d[27] = Meg // hangman, cancelled [blank art]
-    RPS 2 - Electric Boogaloo
-    d[28] = Meg // Curses! [sword art]
-    choice 6 [Do you have it, yes or no?]
-    d[29] = Meg // Hand it over! [sword art]
-    d[30] = Meg // Never Mind [blank art]
-    d[31] = Meg // Take waman [princess art]
-    d[32] = Narator // You grab the Princess [princess art]
-    d[33] = Princess Stasuma // I'm Princess Stasuma [princess art]
-    d[34] = player // You must be nuts [princess art]
-    dialogue_box()
+    cls()
+
+if __name__ == '__main__':
+    try:
+        show_title()
+        d('blank', meg, l[0])
+        d('home', '', l[1], False)
+        
+        # ask the old lady for help? else gameover
+        if t.choice('Do you ask them for help?') == False: t.game_over(gameover_reasons[0])
+
+        cls()
+        d('old_lady', 'Old Lady', l[2], False)
+        print('\n')
+
+        # if you fail... you will die.
+        if missing_word_puzzle() == False: t.game_over(gameover_reasons[1])
+        cls() 
+
+        d('old_lady', 'Old Lady', l[3]) 
+
+
+        # going toward village
+        d('village', '', l[4], False)
+
+        if t.choice('Pick it up and take a look?'):
+            cls() 
+            d('dazed','💩',l[5]) # dog poo [dazed art]
+        else:
+            cls()
+            d('dazed','💩','That\'s probably for the best... Moving on...') # dog poo [dazed art]    
+        
+        d('forest','???',l[6]) # ??? // WAIT who goes there? [forest art] 
+        d('forest','',l[7]) # Narrator // You stop dead in your tracks [forest art]
+        d('black_knight_pre','Black Knight',l[8]) # Black Knight // What are you doing here? [black_kight_pre art]
+        d('black_knight_pre',p,l[9]) # player // ...
+        d('black_knight_pre','Black Knight',l[10], False) # Black Knight // I see
+        if rps() == False: 
+            t.game_over(gameover_reasons[3])
+        cls()
+        
+        d('black_knight_pre','Black Knight',l[11])
+        d('black_knight_pre','Black Knight',l[12])
+        d('black_knight_pre','Black Knight',l[13])
+        d('black_knight_pre','Black Knight',l[14])
+        d('black_knight_post','Black Knight',l[15])
+        d('sword','Black Knight',l[16])
+        d('village','',l[17], False)
+        
+        # sit next to the lion?
+        if t.choice('Do you go and sit next to him?') == False:
+            t.game_over(gameover_reasons[4])
+        cls()
+
+        d('lion',lion_name,l[18])
+        
+        # Lion Help
+        d('lion',lion_name,l[19])
+        if riddle_puzzle() == False:
+            t.game_over(gameover_reasons[5])
+        cls()
+        
+        d('lion',lion_name,l[20])
+        
+        d('phone','',l[21], False)
+        # Maths Challenge
+        if maths_puzzle() == False:
+            t.game_over(gameover_reasons[6])
+        cls()
+
+        d('castle', 'Lion', l[22])
+        d('dazed', '???', l[23])
+        d('princess', 'Princess Footstool', l[24])
+        d('dazed', '', l[25])
+        d('dazed', meg, l[26], False)
+        # Maths Challenge
+        if t.choice('Do you have any last requests?') == False:
+            t.game_over(gameover_reasons[7])
+        cls()
+        
+        # RPS 2 - Electric Boogaloo
+        # - Cancelled Hangman Challenge
+        d('blank', meg, l[27], False)
+        if rps() == False:
+            t.game_over(gameover_reasons[8])
+        cls()
+        
+        d('sword', meg,l[28], False)
+        if t.choice('Do you have it?, theif!') == False:
+            t.game_over(gameover_reasons[9])
+        cls()
+        d('sword', meg,l[29])
+        d('blank', meg,l[30])
+        d('princess', meg,l[31])
+        d('princess', '',l[32])
+        d('sunset', 'Princess Satsuma',l[33])
+        d('sunset', p,l[34])
+
+        d('sunset', 'Dan, James and Ste', l[34], False)
+        exit()
+    except:
+        t.typewriter('\nExiting...\nThanks for playing, this game was made by: \nDaniel Monaghan \nJames Christie \nStephen McCoy\nin 2021 for CodeNation\n')

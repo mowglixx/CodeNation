@@ -1,16 +1,16 @@
-def maths_quiz():
-    q1 = input("Multiply 9 by 4. ")
+from .textutils import typewriter
 
-    if q1 == "36":
-        q2 = input(
-            "Divide 150 by 6. ")
-        if q2 == "25":
-            q3 = input(
-                "Divide 57 by 3. ")
-            if q3 == "19":
-                q4 = input(
-                    "So, the secret code is 362519. Punch it in to the keypad! ")
-                if q4 == "362519":
+def maths_puzzle():
+    typewriter("Multiply 9 by 4.\n ")
+    if input('\n') == "36":
+        # q2
+        typewriter("\nDivide 150 by 6.")
+        if input('\n') == "25":
+            typewriter("\nWhat is 57 Divided by 3?")
+            # q3
+            if input('\n') == "19":
+                typewriter("\nSo, the secret code is 362519. Punch it in to the keypad!")
+                if input('\n') == "362519":
                     return True
-    print("You suck.")
+    typewriter("\nYou suck.")
     return False

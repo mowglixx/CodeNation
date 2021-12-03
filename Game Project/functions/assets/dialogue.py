@@ -1,5 +1,6 @@
 # ask for player name
-player_name = input("What is your name Hero? ")
+
+player_name = input("\n\nBefore we begin... What is your name Hero? ")
 villan_name = "Septic Meg"
 
 affirmative_words = [
@@ -61,9 +62,9 @@ negative_words = [
 
 lines = [
 
-    f"""Hello {player_name}, you little bum head. Thought you could get away with stealing from me? You thought wrong. Until you bring me what is rightfully mine, I'll keep hold of something very dear to you. Or should that be... Someone? Mwahahaha! You have until midnight to do the right thing. And no, I don't mean go on a quest in a bid to be the hero. What do you think this is, a game? Bring me what you stole from me, or else, the Princess will die. Try and be smart with me, you will both die. Is that understood? Lots of loveeeeeeeeeee {villan_name} P.S. Bring milk.""",
+    f"""Hello {player_name}, you little bum head. Thought you could get away with stealing from me? You thought wrong. Until you bring me what is rightfully mine, I'll keep hold of something very dear to you. Or should that be... Someone? Mwahahaha! You have until midnight to do the right thing. And no, I don't mean go on a quest in a bid to be the hero. What do you think this is, a game? Bring me what you stole from me, or else, the Princess will die. Try and be smart with me, you will both die. \nIs that understood? \nHugs and Kisses,\n{villan_name}\nP.S. Bring milk.""",
 
-    f"Oh no! {villan_name} has kidnapped her highness, Princess Footstool! {player_name}, you'll have to go and rescue her! Quick! You leap out of bed, still in your pyjamas, and run out the door. You look around and see an old lady. Do you ask them for help?",
+    f"Oh no! {villan_name} has kidnapped her highness, Princess Footstool! {player_name}, you'll have to go and rescue her! Quick! You leap out of bed, still in your pyjamas, and run out the door. You look around and see an old lady...",
 
     # (YES/NO)
 
@@ -73,7 +74,7 @@ lines = [
 
     f"Bingo! Now I remember! She went towards the village! Run! Save her! Please! She owes me fifty quid. I don't care if she is the princess, I'm not letting her get away with that. Have a safe trip {player_name}!",
 
-    "You make your way towards the village. Hopefully, the old woman wasn't completely insane! ...wait! ...what is that? There's something on the floor. Pick it up and take a look?",
+    "You make your way towards the village. Hopefully, the old woman wasn't completely insane! ...wait! ...what is that? There's something on the floor...",
 
     # (YES/NO)
 
@@ -102,7 +103,7 @@ lines = [
 
     f"Congratulations {player_name}! You won a sword! You can use this to fight enemies... or steal from off licences!",
 
-    "You make your way towards the village. But it's eerily quiet. Nobody is around. A cold wind blows through your hair, and you feel something is amiss. You look around to see what's wrong. Is it the bitter chill in the air? Maybe it's the empty shops. Could it be the stone-cold silence? Oh! it's just a lion sitting on a bench. He signals you to come and sit with him. Do you go and sit next to him? Do you sit next to A FLIPPING LION???",
+    "You make your way towards the village. But it's eerily quiet. Nobody is around. A cold wind blows through your hair, and you feel something is amiss. You look around to see what's wrong. Is it the bitter chill in the air? Maybe it's the empty shops. Could it be the stone-cold silence? Oh! it's just a lion sitting on a bench. He signals you to come and sit with him.",
 
     # (YES/NO)
 
@@ -110,7 +111,7 @@ lines = [
 
     # (YES/NO)
 
-    f"Marvellous. Of course, I would ask for you to scratch my back before I scratch yours. You see, us lions are losing faith in your kind. You humans, as you call yourselves. Primarily because too many of you lot keep trying to stick our heads on walls, but also, we don't think you humans are very good at riddles unlike us furry beings. I'm going to give you a riddle. Correctly answer the riddle and I will give you the guidance you so require.",
+    f"Marvellous. Of course, I would ask for you to scratch my back before I scratch yours. You see, us lions are losing faith in you humans, as you call yourselves. Primarily because too many of you lot keep trying to stick our heads on walls, but also, we don't think you humans are very good at riddles unlike us furry bois. I'm going to give you a riddle. Correctly answer the riddle and I will give you the guidance you so require.",
 
     # (RIDDLE CHALLENGE)
 
@@ -153,4 +154,5 @@ lines = [
     "You must be nuts if you want to do all that again! Let's go home.",
 
     # THE END
+    f"Congratulations {player_name}! \nyou made it to the end!\nYou may not have saved the 'CORRECT' princess but I suppose one will do, Well Done!"
 ]

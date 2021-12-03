@@ -1,13 +1,17 @@
+from time import sleep
+from .textutils import typewriter
 import random as r
 
 RPS = ["ROCK", "PAPER", "SCISSORS"]
 
 
-def rps():
+def rock_paper_scissors_puzzle():
     comp = computer_move()
     player = player_move()
     winner, tie = calc_winner(comp, player)
     disp_winner(winner, tie)
+    input("\nPress Enter ⏩\n")
+    return winner
 
 
 def computer_move():
@@ -23,13 +27,13 @@ def player_move():
 
 
 def calc_winner(comp, player):
-    print("The computer chooses {0}.".format(comp))
+    typewriter("Your opponent chooses {0}.".format(comp))
     winner = None
     tie = False
 
     if player == comp:
-        print("No winner.... Restarting....\n")
-        rps()
+        typewriter("No winner.... Restarting....\n")
+        rock_paper_scissors_puzzle()
         tie = True
     elif (((comp == "ROCK") and (player == "PAPER")) or
           ((comp == "PAPER") and (player == "SCISSORS")) or
@@ -43,10 +47,10 @@ def calc_winner(comp, player):
 
 def disp_winner(winner, tie):
     if tie == True:
-        print("")
+        typewriter("")
     elif winner == True:
-        print("You beat the computer!")
+        typewriter("You beat Your opponent!")
     elif winner == False:
-        print("The computer beat you!")
+        typewriter("Your opponent beat you!")
 
 
