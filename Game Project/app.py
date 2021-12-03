@@ -76,13 +76,17 @@ if __name__ == '__main__':
         
         # sit next to the lion?
         if t.choice('Do you go and sit next to him?') == False:
-            t.game_over(gameover_reasons[4])
+            t.game_over(gameover_reasons[3])
         cls()
 
-        d('lion',lion_name,l[18])
+        d('lion',lion_name,l[18], False)
+        # help from the lion?
+        if t.choice('Would you like my help?') == False:
+            t.game_over(gameover_reasons[4])
+        cls()
         
         # Lion Help
-        d('lion',lion_name,l[19])
+        d('lion',lion_name,l[19], False)
         if riddle_puzzle() == False:
             t.game_over(gameover_reasons[5])
         cls()
@@ -119,10 +123,9 @@ if __name__ == '__main__':
         d('sword', meg,l[29])
         d('blank', meg,l[30])
         d('princess', meg,l[31])
-        d('princess', '',l[32])
-        d('sunset', 'Princess Satsuma',l[33])
-        d('sunset', p,l[34])
-
+        d('princess', 'Princess Satsuma',l[32])
+        d('sunset', p,l[33])
+        
         d('sunset', 'Dan, James and Ste', l[34], False)
         exit()
     except:

@@ -11,8 +11,8 @@ screen_width = 60
 
 def choice(question="What is your answer?"):
     while True:
-        typewriter(question+" ")
-        choice = input()
+        typewriter('\n'+question)
+        choice = input('\n')
         if choice.lower() in affirmative_words:
             return True
         elif choice.lower() in negative_words:

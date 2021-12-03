@@ -22,7 +22,7 @@ def computer_move():
 def player_move():
     player = ""
     while not player in RPS:
-        player = input("Choose your weapon(rock, paper, or scissors: ").upper()
+        player = input("Choose your weapon (rock, paper, or scissors): ").upper()
     return player
 
 

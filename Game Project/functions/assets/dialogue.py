@@ -107,7 +107,7 @@ lines = [
 
     # (YES/NO)
 
-    f"Take a seat, mon amis. My super lion senses tell me you're looking for someone. You may have already assumed I'm quite the hunter, and you'd be right. The fact you've come and sat next to me Makes me think you'd appreciate my assistance. Would you like my help?",
+    f"Take a seat, mon amis. My super lion senses tell me you're looking for someone. You may have already assumed I'm quite the hunter, and you'd be right. The fact you've come and sat next to me Makes me think you'd appreciate my assistance.",
 
     # (YES/NO)
 
