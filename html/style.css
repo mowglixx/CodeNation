@@ -1,0 +1,157 @@
+* {
+    color: #fff;
+    margin: 0px;
+    padding: 0px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+h2 {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    margin-bottom: 1rem;
+    font-weight: 900;
+    font-size: xx-large;
+}
+
+p{
+    font-size: larger;
+}
+
+code {
+    font-family: 'Courier New', Courier, monospace;
+    background: #222;
+    color: #ff0066;
+    text-decoration: none;
+    padding: 5px;
+    border-radius: 12%;
+    
+}
+
+nav{
+    position: fixed;
+    top:0;
+    width: 100%;
+    background-color: #95D1CC;
+    padding: 1.5em;
+    border-bottom: white solid 2px;
+}
+
+nav>h2 {
+    color: black !important;
+    padding: 2rem;
+    margin-top: -2rem;
+    margin-left: auto;
+    margin-right: 50px;
+    margin-bottom: 0px;
+    width: 150px;
+    text-align: center;
+    font-size: xx-large;
+    position: relative;
+    background-color: rgba(255,255,255,0.5);
+    border-radius: 0 0 50px 50px;
+}
+nav>ul>li{
+    list-style: none;
+    display: inline;
+    padding: 1rem;
+    margin: 0;
+    align-self: flex-end;
+}
+nav>ul>li>a{
+    text-decoration: none;
+    font-weight: 500;
+    display: inline-block;
+    padding: 1rem 1rem;
+    color: #22577E;
+    border-radius: 1rem;
+}
+nav>ul>li>a:visited{
+    color: #22577E;
+}
+nav>ul>li>a:active{
+    color: #22577E;
+}
+nav>ul>li>a:hover{
+    color: #fff;
+    background-color: #5584AC;
+    transition: all 0.3s;
+}
+
+
+body{
+    background-color: #555;
+}
+
+.container {
+    width: 100%;
+}
+.section {
+    height: 100vh;
+}
+
+.section>.bounding-box{
+    margin: 0;
+    padding: 25% 25%;
+    min-width: 75%;
+}
+.container>:nth-child(odd){
+    background: #5584AC;
+}
+.container>:nth-child(even){
+    background: #22577E;
+}
+.container>:nth-last-child(1){
+    background: #95D1CC;
+    height: 125px;
+
+}
+.container>:nth-last-child(1)>.bounding-box{
+    background: #F6F2D4;
+    height: 125px;
+}
+.container>:nth-last-child(1)>.bounding-box>.col>p, .container>:nth-last-child(1)>.bounding-box>.col>h2{
+    color: #222;
+    background-color: #F6F2D4;
+}
+.container>:nth-child(odd)>.bounding-box>.col>*{
+    color: #F6F2D4;
+}
+
+.col>img {
+    background-color: #95D1CC;
+    max-width: 250px;
+    border-radius: 5px;
+    border: #F6F2D4 solid;
+    border-radius: 50px 50px 0px;
+}
+.col {
+    display: inline;
+    margin-top: 50rem;
+    max-width: 50%;
+    margin: 0;
+    padding: 0;
+}
+
+@media only screen and (max-width: 666px) {
+    body>*{
+        display: inline-block;
+        min-width: 100%;
+        margin: 0px;
+        padding: 0px;
+        position: relative;
+        overflow-x: hidden;
+    }
+    nav>h2 {
+        color: black !important;
+        padding: 1rem;
+        margin-top: 0rem;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 0px;
+        width: 150px;
+        text-align: center;
+        font-size: x-large;
+        position: relative;
+        background-color: rgba(255,255,255,0.5);
+        border-radius: 0 0 50px 50px;
+    }
+}
