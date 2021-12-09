@@ -3,7 +3,7 @@
   src: url(fonts/HyliaSerifBeta-Regular.otf);
 }
 @font-face {
-  font-family: "HyliaSymbols";
+  font-family: "HylianSymbols";
   src: url(fonts/HylianSymbols.ttf);
 }
 @font-face {
@@ -22,11 +22,16 @@
     font-family: "dialogueFont";
     src: url(fonts/FOT-Rodin\ Pro\ EB.otf);
 }
+@font-face {
+    font-family: "Triforce";
+    src: url(fonts/Triforce.ttf);
+}
 :root {
   --earthy-brown: rgba(54, 45, 35, 1);
   --heros-blue: rgba(36, 150, 231, 1);
   --triforce-gold: rgba(244, 189, 7, 1);
-  --dark-color: rgba(12, 8, 5, 0.5);
+  --dark-color: rgba(12, 8, 5, 0.85);
+  --gameover-red: #f02a00;
   --default-padding: 3rem;
   --small-padding: 1rem;
 }
@@ -34,9 +39,10 @@
 * {
   margin: 0;
   padding: 0;
-  font-size: 100%;
+  font-size: 16pt;
   font-family: "dialogueFont", sans-serif;
-  font-weight: 400;
+  font-style: normal;
+  font-weight: 600;
   color: var(--earthy-brown);
 }
 
@@ -71,8 +77,36 @@ body {
   background-color: var(--earthy-brown);
 }
 
+body:after{
+    content: ' ';
+    background-image: url(img/BotW_Master_Sword_Artwork.png);
+    background-position: 0px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    position: fixed;
+    top: 0;
+    left: -4rem;
+    width: 10rem;
+    min-height: 100vh;
+    overflow: hidden;
+    /* ITS OVER 9000!!! */
+    z-index: 9999;
+}
+
 h2 {
   font-size: xx-large;
+}
+h3 {
+  font-size: x-large;
+}
+
+a {
+    color: white;
+    text-decoration: none;
+}
+a:hover {
+    color: var(--heros-blue);
+    text-decoration: underline;
 }
 
 footer{
@@ -93,7 +127,7 @@ footer{
 .top {
     position: fixed;
   height: 2rem;
-  z-index: 0;
+  z-index: 10;
   padding: 16px;
   justify-content: center;
   width: 100%;
@@ -106,7 +140,7 @@ footer{
   display: flex;
   list-style: none;
   margin: 0;
-  color: #f02a00;
+  color: var(--gameover-red);
   display: inline-flex;
   flex-flow: column-reverse wrap;
   font-family: "HyliaSerif";
@@ -115,39 +149,38 @@ footer{
 .mid {
   height: fit-content;
   width: 100%;
+  z-index: 9;
   display: flex;
   flex-flow: column nowrap;
   justify-content: flex-start;
-  background-image: url(img/bg1.jpg);
+  /* background-image: url(img/bg1.jpg); */
   background-repeat: no-repeat;
   background-size: cover cover;
   background-attachment: fixed;
   background-position: center;
 }
-body:after{
-    content: ' ';
-    background-image: url(img/BotW_Master_Sword_Artwork.png);
-    background-position: 0px;
-    background-repeat: no-repeat;
-    background-size: contain;
+.mid>video {
     position: fixed;
-    top: 0;
-    left: -6rem;
-    width: 250px;
-    min-height: 120%;
-    overflow: hidden;
-    z-index: 2000;
+    display: flow-root;
+    z-index: 9;
+    margin: -5rem;
+    width: 110%;
+    overflow: clip;
+    max-height: 110vh;
 }
+
 .mid > div.page {
   padding: var(--default-padding);
   background-color: var(--dark-color);
   color: var(--earthy-brown);
+  z-index: 10;
   max-width: 960px;
   min-height: 720px;
   margin: 5rem auto;
 }
-.mid > div.page > * {
+.mid > div.page > *, .mid > div.page > ul>li {
   color: white;
+  list-style: "-> ";
   text-shadow: var(--triforce-gold) 0px 0px 12px;
 }
 
@@ -161,6 +194,8 @@ body:after{
   background-color: var(--earthy-brown);
   font-family: "SheilkSlateSymbology";
   box-shadow: var(--heros-blue) 0px -5px 5px;
+  /* baka body:after */
+  z-index: 10000;
 }
 .symbols {
   font-family: "SheilkSlateSymbology";
@@ -212,23 +247,37 @@ body:after{
     flex-flow: row wrap;
     min-height: 100%;
 }
-.gallery>img {
-    width: 250px;
+.gallery>.cards {
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-start;
+    flex-flow: row nowrap;
+    min-height: 100%;
+    height: 180px;
+    overflow-x: scroll;
 }
-.gallery>img:hover {
+.gallery>.cards>img {
+    width: 250px;
+    height: 150px;
+    margin-left: 0px;
+}
+.gallery>.cards>img:hover {
     box-shadow: var(--heros-blue) 0 0 10px;
     z-index: 99;
     transition: all 0.3s;
-    transform: rotateZ(3deg);
+    transform: rotateY(16deg);
+    transform: translateX(-16px);
 }
-.gallery>img:active {
+.gallery>.cards>img:active {
     box-shadow: var(--heros-blue) 0 0 10px;
     z-index: 199;
     transition: all 0.3s;
     transition-delay: 0.1s;
     position: absolute;
-    top: 20px;
-    width: 75%;
+    display: unset;
+    margin: 0 auto;
+    min-width: 80%;
+    height: 80%;
     transform: rotateZ(0deg);
 }
 .store {
@@ -238,23 +287,37 @@ body:after{
     flex-flow: row wrap;
     min-height: 100%;
     font-family: "BreathOfTheWildFont";
+    text-shadow: none;
 }
 .store>div {
     width: 250px;
-    height: 150px;
+    height: 140px;
+    margin-left: 1rem;
+    margin-right: 1rem;
     border-radius: 16px;
-    background-color: var(--dark-color);
+    background-color: white;
     overflow: hidden;
-    color: white;
+    text-shadow: none;
+    color: var(--dark-color);
 }
 .store>div>* {
-    max-width: 100%;
     display: inline-block;
-    color: white;
     overflow: hidden;
 }
+.store>div>img {
+    display: block;
+    margin: 0 auto;
+    height: 140px;
+    width: auto;
+    overflow: hidden;
+    box-shadow: black 0 0 64px;
+}
+.store>div>h2 {
+    display: absolute;
+    margin-top: -500px auto auto;
+}
 .store>div:hover {
-    box-shadow: var(--heros-blue) 0 0 10px;
+    box-shadow: var(--heros-blue) 0 0 50px;
     z-index: 99;
     overflow: -moz-hidden-unscrollable;
     color: white;
@@ -263,24 +326,94 @@ body:after{
 }
 .store>div:active {
     box-shadow: black 0 0 10px;
-    z-index: 199;
+    z-index: 10199;
     overflow: visible;
     transition: all 0.3s;
-    position: absolute;
+    position: fixed;
     padding: 5rem;
-    top: 20px;
+    top: 30%;
     width: 40%;
-    height: 80%;
+    height: fit-content;
     background-color: var(--dark-color);
     color: white;
     transform: scale(1);
+    align-content: center;
 }
 
 .store>div:active>img {
-    display: block;
-    height: 250px;
+    /* position: absolute; */
+    margin: 0 auto;
+    margin-top: -140px;
+    max-width: 550px;
+    max-height: 250px;
 }
-.store>div:active>h3 {
+.store>div:active>h3{
+
+}
+.store>div:active>h3, .store>div:active>p {
     display: block;
-    font-size: xx-large;
+    color: white;
+    font-family: "dialogueFont";
+    font-stretch: 1.5rem;
+    text-shadow: var(--triforce-gold) 0 0 8px;
+}
+
+.icon {
+    display: inline-block;
+    height: 32px;
+    width: 32px;
+    font-size: 32px;
+    text-align: center;
+    vertical-align: center;
+    justify-self: center;
+    line-height: 32px;
+    border-radius: 16px;
+    margin: 0;
+    padding: 0;
+    text-shadow: none;
+    filter: grayscale();
+    transition: all 0.3s;
+    transition-delay: 0.1s;
+    text-shadow: unset none;
+}
+
+.icon:hover {
+    filter: saturate();
+    text-shadow: white 0 0 1rem;
+}
+
+.price {
+    font-family: "Triforce";
+    font-size: calc(var(--default-padding)/1.5);
+    color: greenyellow;
+    text-shadow: none;
+}
+.price:after {
+    content: '$';
+}
+
+.triforce {
+    font-family: "Triforce";
+    color: var(--triforce-gold);
+}
+
+.triforce:after {
+    content: "*";
+}
+
+.earth {
+    font-family: "HylianSymbols";
+    font-size: calc(var(--default-padding)/1.5);
+    color: var(--heros-blue);
+}
+.earth:after {
+    content: "f";
+}
+.fire {
+    font-family: "Triforce";
+    color: var(--gameover-red);
+}
+
+.fire:after {
+    content: "*";
 }
