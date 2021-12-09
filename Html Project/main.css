@@ -159,7 +159,7 @@ footer{
   background-attachment: fixed;
   background-position: center;
 }
-.mid>video {
+.mid>iframe {
     position: fixed;
     display: flow-root;
     z-index: 9;
@@ -258,15 +258,24 @@ footer{
 }
 .gallery>.cards>img {
     width: 250px;
-    height: 150px;
+    max-height: 150px;
     margin-left: 0px;
+    transform: rotateY(16deg) ;
+    transform: translateY(16px);
 }
 .gallery>.cards>img:hover {
     box-shadow: var(--heros-blue) 0 0 10px;
     z-index: 99;
     transition: all 0.3s;
     transform: rotateY(16deg);
-    transform: translateX(-16px);
+    transform: translateY(-16px);
+}
+.gallery>.cards>img:hover~img {
+    box-shadow: var(--heros-blue) 0 0 10px;
+    z-index: 99;
+    transition: all 0.3s;
+    transform: rotateY(16deg);
+    transform: translateX(16px);
 }
 .gallery>.cards>img:active {
     box-shadow: var(--heros-blue) 0 0 10px;
@@ -277,8 +286,7 @@ footer{
     display: unset;
     margin: 0 auto;
     min-width: 80%;
-    height: 80%;
-    transform: rotateZ(0deg);
+    max-height: 80%;
 }
 .store {
     display: flex;
