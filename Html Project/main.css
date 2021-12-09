@@ -1,93 +1,286 @@
 @font-face {
-    font-family: "HyliaSerif";
-    src: url();
+  font-family: "HyliaSerif";
+  src: url(fonts/HyliaSerifBeta-Regular.otf);
 }
 @font-face {
-    font-family: "HyliaSerif";
-    src: url();
+  font-family: "HyliaSymbols";
+  src: url(fonts/HylianSymbols.ttf);
+}
+@font-face {
+  font-family: "SheilkSlateSymbology";
+  src: url(fonts/BotW_Sheikah.ttf);
+}
+@font-face {
+  font-family: "SheilkSlateSymbologyBold";
+  src: url(fonts/BotW_Sheikah_Bold.ttf);
+}
+@font-face {
+  font-family: "BreathOfTheWildFont";
+  src: url(fonts/The\ Wild\ Breath\ of\ Zelda.otf);
+}
+@font-face {
+    font-family: "dialogueFont";
+    src: url(fonts/FOT-Rodin\ Pro\ EB.otf);
 }
 :root {
-    --bg-color: #494b4b;
-    --primary-color: #0d9263;
-    --secondary-color: #4aba91;
-    --highlight-color: #d4ce46;
-    --default-padding: 3rem;
+  --earthy-brown: rgba(54, 45, 35, 1);
+  --heros-blue: rgba(36, 150, 231, 1);
+  --triforce-gold: rgba(244, 189, 7, 1);
+  --dark-color: rgba(12, 8, 5, 0.5);
+  --default-padding: 3rem;
+  --small-padding: 1rem;
 }
 
 * {
-    margin: 0;
-    padding: 0;
-    font-size: 100%;
-     font-family: /*"HyliaSerif", */ sans-serif; 
-    font-style: normal;
-    font-weight: 500;
-    /* background-color: var(--bg-color); */
-    color: var(--secondary-color);
-}
-body{
-    height: 100%;
+  margin: 0;
+  padding: 0;
+  font-size: 100%;
+  font-family: "dialogueFont", sans-serif;
+  font-weight: 400;
+  color: var(--earthy-brown);
 }
 
-.main{
-    display: flex;
-    width: 100%;
-    height: 100%;
-    flex-direction: column;
-    position: fixed;
+/* ===== Scrollbar CSS ===== 
+Generated using https://codepen.io/stephenpaton-tech/full/JjRvGmY 
+*/
+  /* Firefox */
+  * {
+    scrollbar-width: auto;
+    scrollbar-color: #f4bd07 #362d23;
+  }
+
+  /* Chrome, Edge, and Safari */
+  *::-webkit-scrollbar {
+    width: 5px;
+  }
+
+  *::-webkit-scrollbar-track {
+    background: #362d23;
+  }
+
+  *::-webkit-scrollbar-thumb {
+    background-color: #f4bd07;
+    border-radius: 2px;
+    border: 1px dotted #ffffff;
+  }
+
+
+body {
+  height: 100%;
+  overflow-x: hidden;
+  background-color: var(--earthy-brown);
+}
+
+h2 {
+  font-size: xx-large;
+}
+
+footer{
+    width: fit-content;
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+.main {
+  width: 100%;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
 }
 
 .top {
-    display: flex;
-    height: fit-content;
-    background-color:var(--highlight-color);
-    padding: var(--default-padding);
+    position: fixed;
+  height: 2rem;
+  z-index: 0;
+  padding: 16px;
+  justify-content: center;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  background-color: var(--earthy-brown);
+  box-shadow: var(--heros-blue) 0px 5px 5px;
+}
+.top > h2 {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  color: #f02a00;
+  display: inline-flex;
+  flex-flow: column-reverse wrap;
+  font-family: "HyliaSerif";
 }
 
-.mid{
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: flex-start;
+.mid {
+  height: fit-content;
+  width: 100%;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
+  background-image: url(img/bg1.jpg);
+  background-repeat: no-repeat;
+  background-size: cover cover;
+  background-attachment: fixed;
+  background-position: center;
+}
+body:after{
+    content: ' ';
+    background-image: url(img/BotW_Master_Sword_Artwork.png);
+    background-position: 0px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    position: fixed;
+    top: 0;
+    left: -6rem;
+    width: 250px;
+    min-height: 120%;
+    overflow: hidden;
+    z-index: 2000;
+}
+.mid > div.page {
+  padding: var(--default-padding);
+  background-color: var(--dark-color);
+  color: var(--earthy-brown);
+  max-width: 960px;
+  min-height: 720px;
+  margin: 5rem auto;
+}
+.mid > div.page > * {
+  color: white;
+  text-shadow: var(--triforce-gold) 0px 0px 12px;
 }
 
 .bottom {
-    background-color: var(--highlight-color);
-    height: 1rem;
-    padding: var(--default-padding);
+  height: 100%;
+  width: 100%;
+  align-self: center;
+  justify-self: center;
+  text-align: center;
+  padding: var(--default-padding);
+  background-color: var(--earthy-brown);
+  font-family: "SheilkSlateSymbology";
+  box-shadow: var(--heros-blue) 0px -5px 5px;
 }
-.top>nav>ul {
+.symbols {
+  font-family: "SheilkSlateSymbology";
+  font-size: xx-large;
+  font-weight: 100;
+  text-shadow: lightblue 0px 0px 0.333rem;
+  color: var(--heros-blue);
+}
+.navlist {
+  padding: 0 var(--default-padding);
+  list-style: none;
+  display: inline-flex;
+  flex-flow: row nowrap;
+}
+
+.navlist > li > a, .navlist > li > a:active,
+.navlist > li > a:visited {
+    padding: 20px;
+  text-decoration: none;
+  color: var(--triforce-gold);
+  font-family: "HyliaSerif";
+  font-size: 1.5rem;
+  background-color: var(--earthy-brown);
+  flex-direction: row-reverse;
+}
+.navlist > li > a:hover {
+  color: var(--triforce-gold);
+  background-color: var(--heros-blue);
+  transition: all 0.3s;
+  padding-bottom: 32px;
+}
+.navlist > li > a:hover {
+  color: var(--triforce-gold);
+  background-color: var(--heros-blue);
+  transition: padding 0.2s;
+  transition-delay: 0.1s;
+  padding-bottom: 32px;
+  filter: brightness(125%);
+}
+.navlist > li > a.active {
+  color: var(--triforce-gold);
+  filter: brightness(125%);
+}
+
+.gallery {
     display: flex;
-    flex-flow: row nowrap;
-    list-style: none;
-    /* background-color: var(--primary-color); */
+    align-items: center;
+    justify-content: center;
+    flex-flow: row wrap;
+    min-height: 100%;
 }
-
-.top>nav>ul>li>a {
-    padding: 1rem 3rem;
-    margin: 2rem;
-    text-decoration: none;
-    color: var(--primary-color);
-    font-family: "HyliaSerif";
-    border: calc(var(--default-padding)/7) solid var(--secondary-color);
-    border-radius: 50px;
-    font-size: 2rem;
-    background-color: var(--primary-color); 
-}
-.top>nav>ul>li>a:hover, .top>nav>ul>li>a:active, .top>nav>ul>li>a:visited {
-    filter: brightness(125%);
-    color: var(--highlight-color);
-}
-
-.left {
-    background-color: var(--secondary-color);
+.gallery>img {
     width: 250px;
-    color: var(--highlight-color);
-    padding: var(--default-padding);
 }
-.right {
-    padding: var(--default-padding);
-    background-color: #222;
+.gallery>img:hover {
+    box-shadow: var(--heros-blue) 0 0 10px;
+    z-index: 99;
+    transition: all 0.3s;
+    transform: rotateZ(3deg);
 }
-.right>*{
-    margin: 0;
-    padding:0;
+.gallery>img:active {
+    box-shadow: var(--heros-blue) 0 0 10px;
+    z-index: 199;
+    transition: all 0.3s;
+    transition-delay: 0.1s;
+    position: absolute;
+    top: 20px;
+    width: 75%;
+    transform: rotateZ(0deg);
+}
+.store {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-flow: row wrap;
+    min-height: 100%;
+    font-family: "BreathOfTheWildFont";
+}
+.store>div {
+    width: 250px;
+    height: 150px;
+    border-radius: 16px;
+    background-color: var(--dark-color);
+    overflow: hidden;
+    color: white;
+}
+.store>div>* {
+    max-width: 100%;
+    display: inline-block;
+    color: white;
+    overflow: hidden;
+}
+.store>div:hover {
+    box-shadow: var(--heros-blue) 0 0 10px;
+    z-index: 99;
+    overflow: -moz-hidden-unscrollable;
+    color: white;
+    transition: transform 0.3s;
+    transform: scale(1.3);
+}
+.store>div:active {
+    box-shadow: black 0 0 10px;
+    z-index: 199;
+    overflow: visible;
+    transition: all 0.3s;
+    position: absolute;
+    padding: 5rem;
+    top: 20px;
+    width: 40%;
+    height: 80%;
+    background-color: var(--dark-color);
+    color: white;
+    transform: scale(1);
+}
+
+.store>div:active>img {
+    display: block;
+    height: 250px;
+}
+.store>div:active>h3 {
+    display: block;
+    font-size: xx-large;
 }
