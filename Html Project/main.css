@@ -355,9 +355,7 @@ footer{
     max-width: 550px;
     max-height: 250px;
 }
-.store>div:active>h3{
 
-}
 .store>div:active>h3, .store>div:active>p {
     display: block;
     color: white;
