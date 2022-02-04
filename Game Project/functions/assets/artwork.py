@@ -404,20 +404,3 @@ _|_     _|_     _|_     _|_     _|_     _|_     _|_     _|_     _|_
         \>
 """
 }
-
-#used for testing
-# print(artwork['title'])
-# print(artwork['lion'])
-# print(artwork['blank'])
-# print(artwork['village'])
-# print(artwork['black_knight_pre'])
-# print(artwork['black_knight_post'])
-# print(artwork['sword'])
-# print(artwork['spiral'])
-# print(artwork['eye'])
-# print(artwork['dragon'])
-# print(artwork['dazed'])
-# print(artwork['castle'])
-# print(artwork['phone'])
-# print(artwork['sunset'])
-# print(artwork['old_lady'])
